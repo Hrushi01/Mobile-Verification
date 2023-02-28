@@ -34,7 +34,7 @@ const DatePickerForm = () => {
           <Form>
             <div className="mb-4">
               <label htmlFor="dob" className="block font-bold text-lg mb-2">
-                React-DatePicker
+                2. React-DatePicker
               </label>
               <DatePicker
                 id="dob"

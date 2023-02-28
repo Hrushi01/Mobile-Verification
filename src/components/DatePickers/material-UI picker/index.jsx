@@ -33,7 +33,7 @@ function DateOfBirthForm() {
           <Form className="my-4">
             <div className="mb-4">
               <label htmlFor="dob" className="block font-bold text-lg mb-2">
-                Material-UI Date Picker
+                1. Material-UI Date Picker
               </label>
               <DateOfBirthPicker
                 name="dob"

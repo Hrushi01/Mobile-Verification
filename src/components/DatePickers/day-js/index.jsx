@@ -44,7 +44,7 @@ const Day = () => {
                 htmlFor="dateOfBirth"
                 className="block font-bold text-lg mb-2"
               >
-                Day Js
+                3. Day Js
               </label>
               <DatePicker
                 name="dateOfBirth"
