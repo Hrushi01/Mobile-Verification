@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import FileInput from "./FileInput";
-import Otp from "./components/Otp";
+import FileInput from "./components/fileinput";
+import Otp from "./components/otp";
 
 function App() {
   const [user, setUser] = useState(null);

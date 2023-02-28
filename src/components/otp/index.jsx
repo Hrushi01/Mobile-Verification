@@ -3,7 +3,7 @@ import { CgSpinner } from "react-icons/cg";
 import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { toast, Toaster } from "react-hot-toast";
 import TextField from "@mui/material/TextField";
