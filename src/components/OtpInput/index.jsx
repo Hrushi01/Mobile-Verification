@@ -30,7 +30,7 @@ function OtpInput({ otp, setOtp, loading, onOTPVerify }) {
               variant="contained"
               color="primary"
               fullWidth
-              className="text-white bg-indigo-500 hover:bg-indigo-600 py-2 px-4 rounded-md shadow-md transition-colors duration-300 ease-in-out"
+              // className="text-white bg-indigo-500 hover:bg-indigo-600 py-2 px-4 rounded-md shadow-md transition-colors duration-300 ease-in-out"
             >
               {loading && <CgSpinner size={20} className="mr-2 animate-spin" />}
               Verify code

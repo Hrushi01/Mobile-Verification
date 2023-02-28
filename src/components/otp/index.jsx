@@ -14,10 +14,6 @@ const Otp = () => {
   const [ph, setPh] = useState("");
   const [loading, setLoading] = useState(false);
   const [showOTP, setShowOTP] = useState(false);
-  console.log("OTP", otp);
-  console.log("pn", otp);
-  console.log("OTP", otp);
-  console.log("OTP", otp);
 
   function onCaptchVerify() {
     if (!window.recaptchaVerifier) {
