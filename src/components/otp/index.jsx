@@ -1,19 +1,22 @@
-import { CgSpinner } from "react-icons/cg";
-
 import { useState } from "react";
-import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { auth } from "../../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { toast, Toaster } from "react-hot-toast";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+import PhoneInput from "../PhoneInput";
+
+import OtpInput from "../OtpInput";
 
 const Otp = ({ user, setUser }) => {
   const [otp, setOtp] = useState("");
+
   const [ph, setPh] = useState("");
   const [loading, setLoading] = useState(false);
   const [showOTP, setShowOTP] = useState(false);
+  console.log("OTP", otp);
+  console.log("pn", otp);
+  console.log("OTP", otp);
+  console.log("OTP", otp);
 
   function onCaptchVerify() {
     if (!window.recaptchaVerifier) {
@@ -76,51 +79,19 @@ const Otp = ({ user, setUser }) => {
         ) : (
           <div className="w-80 flex flex-col gap-4 rounded-lg p-4">
             {showOTP ? (
-              <>
-                <label htmlFor="otp" className="font-bold text-xl  text-center">
-                  Enter your OTP
-                </label>
-                <TextField
-                  id="verification-code"
-                  label="Enter verification code"
-                  variant="outlined"
-                  fullWidth
-                  value={otp}
-                  onChange={(e) => setOtp(e.target.value)}
-                />
-                <div>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    fullWidth
-                    onClick={onOTPVerify}
-                  >
-                    {loading && (
-                      <CgSpinner size={20} className="mt-1 animate-spin" />
-                    )}
-                    Verify code
-                  </Button>
-                </div>
-              </>
+              <OtpInput
+                otp={otp}
+                setOtp={setOtp}
+                onOTPVerify={onOTPVerify}
+                loading={loading}
+              />
             ) : (
-              <>
-                <label htmlFor="" className="font-bold text-xl  text-center">
-                  Verify your phone number
-                </label>
-                <PhoneInput country={"in"} value={ph} onChange={setPh} />
-
-                <Button
-                  variant="contained"
-                  color="primary"
-                  fullWidth
-                  onClick={onSignup}
-                >
-                  {loading && (
-                    <CgSpinner size={20} className="mt-1 animate-spin" />
-                  )}
-                  Send verification code
-                </Button>
-              </>
+              <PhoneInput
+                ph={ph}
+                setPh={setPh}
+                onSignup={onSignup}
+                loading={loading}
+              />
             )}
           </div>
         )}

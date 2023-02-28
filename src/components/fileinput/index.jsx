@@ -12,73 +12,73 @@ const FileInput = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex flex-col w-36 h-36 relative">
-        <img
-          data-testid="setimg"
-          src={
-            selectedFile
-              ? selectedFile
-              : "https://via.placeholder.com/150.png?text=Logo"
-          }
-          alt="img"
-          className="w-full h-full rounded-full shadow-md"
-        />
-        <div className="absolute bottom-0 right-0 rounded-full z-10 p-1 bg-white items-center justify-center flex"></div>
-        {selectedFile ? (
-          <div className="absolute top-0 right-0 rounded-full z-10 bg-transparent items-center justify-center flex">
-            <div
-              data-testid="del"
-              className="rounded-full cursor-pointer text-2xl bg-white p-0.5"
-              onClick={() => {
-                setSelectedFile(null);
-              }}
+      {!selectedFile ? (
+        <div className="w-full max-w-md">
+          <label
+            htmlFor="file-input"
+            className="block text-lg font-bold text-gray-700"
+          >
+            Select a file:
+          </label>
+          <input
+            type="file"
+            id="file-input"
+            onChange={handleFileSelect}
+            className={
+              "py-2 px-4 rounded-md shadow-sm  block w-full sm:text-sm border-gray-300"
+            }
+          />
+          <div className="mt-4 flex justify-center">
+            <button
+              type="button"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+              onClick={() => setCamOn(!camon)}
             >
-              <MdDeleteForever color={"red"} />
+              {camon ? "Close Camera" : "Open Camera"}
+            </button>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="flex flex-col items-center w-full max-w-md">
+            <div className="relative rounded-full w-36 h-36">
+              <img
+                data-testid="setimg"
+                src={
+                  selectedFile
+                    ? selectedFile
+                    : "https://via.placeholder.com/150.png?text=Picture"
+                }
+                alt="img"
+                className="w-full h-full rounded-full shadow-md"
+              />
+              {selectedFile && (
+                <div className="absolute top-0 right-0 p-1 bg-white rounded-full">
+                  <div
+                    data-testid="del"
+                    className="rounded-full cursor-pointer text-2xl bg-white p-0.5"
+                    onClick={() => setSelectedFile(null)}
+                  >
+                    <MdDeleteForever color={"red"} />
+                  </div>
+                </div>
+              )}
             </div>
+            <div className="mt-4">{selectedFile.name}</div>
           </div>
-        ) : (
-          <></>
-        )}
-      </div>
-      <label
-        htmlFor="file-input"
-        className="block my-4 font-bold text-gray-700"
-      >
-        Select a file:
-      </label>
-      <input
-        type="file"
-        id="file-input"
-        onChange={handleFileSelect}
-        className={
-          selectedFile
-            ? "py-2 px-4 border-2 border-green-700 rounded-md mb-4"
-            : "py-2 px-4 border border-gray-700 rounded-md mb-4"
-        }
-      />
-      {selectedFile && <p className="text-gray-700">{selectedFile.name}</p>}
+        </>
+      )}
 
-      <button
-        type="button"
-        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-        onClick={() => setCamOn(!camon)}
-      >
-        {camon ? "Close Camera" : "Open Camera"}
-      </button>
-      <div>
-        {camon ? (
-          <div data-testid="web" className="flex">
-            <WebcamCapture
-              camon={camon}
-              setCamOn={setCamOn}
-              picture={selectedFile}
-              setpicture={setSelectedFile}
-            />
-          </div>
-        ) : (
-          <></>
-        )}
-      </div>
+      {camon && (
+        <div className="mt-4">
+          <WebcamCapture
+            camon={camon}
+            setCamOn={setCamOn}
+            picture={selectedFile}
+            setpicture={setSelectedFile}
+          />
+        </div>
+      )}
     </div>
   );
 };
