@@ -1,8 +1,8 @@
-import FileInput from "./components/fileinput";
-import Otp from "./components/otp";
-import DateOfBirthForm from "./components/DatePickers/material-UI picker/Material-UI";
-import DatePickerForm from "./components/DatePickers/react-datepicker/React-DatePicker";
-import Day from "./components/DatePickers/Dayjs/Day";
+import FileInput from "./components/Fileinput";
+import Otp from "./components/Otp";
+import DateOfBirthForm from "./components/DatePickers/material-UI picker/index.jsx";
+import DatePickerForm from "./components/DatePickers/react-datepicker";
+import Day from "./components/DatePickers/day-js";
 
 function App() {
   return (
