@@ -7,8 +7,9 @@ import PhoneInput from "../PhoneInput";
 
 import OtpInput from "../OtpInput";
 
-const Otp = ({ user, setUser }) => {
+const Otp = () => {
   const [otp, setOtp] = useState("");
+  const [user, setUser] = useState(null);
 
   const [ph, setPh] = useState("");
   const [loading, setLoading] = useState(false);
