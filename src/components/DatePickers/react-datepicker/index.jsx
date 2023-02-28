@@ -38,6 +38,7 @@ const DatePickerForm = () => {
               </label>
               <DatePicker
                 id="dob"
+                placeholderText="dd/mm/yyyy"
                 name="dob"
                 selected={formikProps.values.dob}
                 onChange={(date) => formikProps.setFieldValue("dob", date)}
