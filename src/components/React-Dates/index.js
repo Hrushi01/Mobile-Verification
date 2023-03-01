@@ -25,7 +25,7 @@ function DateOfBirthInput() {
     <div className="border p-4 my-2 rounded-lg flex flex-col ">
       <div className="mb-4">
         <label htmlFor="dateOfBirth" className="block font-bold text-lg mb-2">
-          React-Dates
+          -React-Dates
         </label>
         <SingleDatePicker
           date={dateOfBirth}

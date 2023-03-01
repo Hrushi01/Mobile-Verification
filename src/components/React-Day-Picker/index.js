@@ -15,7 +15,7 @@ const DayPicke = () => {
     <div className="border p-4 my-2 rounded-lg flex flex-col ">
       <div className="mb-4">
         <label htmlFor="dateOfBirth" className="block font-bold text-lg mb-2">
-          React-Day-Picker
+          -React-Day-Picker
         </label>
         <DayPicker
           mode="single"

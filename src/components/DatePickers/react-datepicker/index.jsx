@@ -34,10 +34,11 @@ const DatePickerForm = () => {
           <Form>
             <div className="mb-4">
               <label htmlFor="dob" className="block font-bold text-lg mb-2">
-                2. React-DatePicker
+                -React-DatePicker
               </label>
               <DatePicker
                 id="dob"
+                label="DOB"
                 placeholderText="dd/mm/yyyy"
                 name="dob"
                 selected={formikProps.values.dob}
