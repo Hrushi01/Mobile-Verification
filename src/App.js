@@ -1,8 +1,9 @@
 import FileInput from "./components/Fileinput";
 import Otp from "./components/Otp";
-import DateOfBirthForm from "./components/DatePickers/material-UI picker/index.jsx";
 import DatePickerForm from "./components/DatePickers/react-datepicker";
-import Day from "./components/DatePickers/day-js";
+// import DateOfBirthInput from "./components/React-Dates";
+// import DayPicke from "./components/React-Day-Picker";
+import Datesmore from "./components/DatePickers/Antd date/Datesmore";
 
 function App() {
   return (
@@ -13,9 +14,10 @@ function App() {
         </h1>
         <FileInput />
         <Otp />
-        <DateOfBirthForm />
         <DatePickerForm />
-        <Day />
+        {/* <DateOfBirthInput /> */}
+        {/* <DayPicke /> */}
+        <Datesmore />
       </div>
     </div>
   );
