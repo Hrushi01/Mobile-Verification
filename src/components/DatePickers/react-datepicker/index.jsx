@@ -1,71 +1,77 @@
-import React from "react";
-import { Formik, Form, ErrorMessage } from "formik";
+import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Button from "@mui/material/Button";
+import { Formik, Form } from "formik";
 
-const DatePickerForm = () => {
-  const initialValues = {
-    dob: "",
-  };
+const Example = () => {
+  const minDate = new Date("01/01/2001");
+  const maxDate = new Date("12/31/2005");
+  const [selectedDate, setSelectedDate] = useState(null);
 
-  const handleSubmit = (values) => {
-    console.log(values);
-  };
-
-  const validate = (values) => {
-    const errors = {};
-
-    if (!values.dob) {
-      errors.dob = "Required";
+  const handleDateChange = (date) => {
+    // Check if selected date is between 2001 and 2005
+    if (date >= minDate && date <= maxDate) {
+      setSelectedDate(date);
+    } else {
+      alert("Please select a date between 2001 and 2005.");
     }
+  };
 
-    return errors;
+  const handleSubmit = (values, actions) => {
+    setTimeout(() => {
+      console.log(selectedDate); // Do something with the date of birth
+      actions.setSubmitting(false);
+    }, 1000);
   };
 
   return (
     <div className="border p-4 my-2 rounded-lg flex flex-col ">
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validate={validate}
-      >
-        {(formikProps) => (
-          <Form>
-            <div className="mb-4">
-              <label htmlFor="dob" className="block font-bold text-lg mb-2">
-                -React-DatePicker
+      <div>
+        <Formik initialValues={{ dob: "" }} onSubmit={handleSubmit}>
+          {(props) => (
+            <Form className="mt-6">
+              <label
+                htmlFor="dob"
+                className="block text-xl font-bold text-center mb-3"
+              >
+                -React-datepicker in range 2001-2005
               </label>
               <DatePicker
                 id="dob"
-                label="DOB"
-                placeholderText="dd/mm/yyyy"
+                placeholderText="MM/dd/yyyy"
                 name="dob"
-                selected={formikProps.values.dob}
-                onChange={(date) => formikProps.setFieldValue("dob", date)}
                 dateFormat="MM/dd/yyyy"
-                className="p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                selected={selectedDate}
+                onChange={handleDateChange}
+                peekNextMonth
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+                minDate={minDate}
+                maxDate={maxDate}
+                className="border border-gray-400 rounded p-2"
               />
-              <ErrorMessage
-                name="dob"
-                component="div"
-                className="text-red-500 mt-2"
-              />
-            </div>
-
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              className="bg-blue-500 text-white px-4 py-2 rounded-md"
-            >
-              Submit
-            </Button>
-          </Form>
-        )}
-      </Formik>
+              {props.errors.dob && props.touched.dob ? (
+                <div className="text-red-500">{props.errors.dob}</div>
+              ) : null}
+              <div className="flex justify-center mt-6">
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  disabled={props.isSubmitting}
+                >
+                  Console dob
+                </Button>
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </div>
     </div>
   );
 };
 
-export default DatePickerForm;
+export default Example;
