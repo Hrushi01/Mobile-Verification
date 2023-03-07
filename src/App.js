@@ -1,5 +1,5 @@
-import FileInput from "./components/Fileinput";
-import Otp from "./components/Otp";
+import FileInput from "./components/fileinput/index";
+import Otp from "./components/otp";
 import DatePickerForm from "./components/DatePickers/react-datepicker";
 import ReactDatetime from "./components/DatePickers/React-Datetime";
 import AntdDate from "./components/DatePickers/Antd date";

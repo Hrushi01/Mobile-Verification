@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import WebcamCapture from "../WebCamCapture";
+import WebcamCapture from "../webcamcapture";
 import { MdDeleteForever } from "react-icons/md";
 
 const FileInput = () => {

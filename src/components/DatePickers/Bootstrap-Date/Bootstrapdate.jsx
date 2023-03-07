@@ -2,6 +2,8 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import { Row, Col } from "react-bootstrap";
 
+import "react-datepicker/dist/react-datepicker.css";
+
 function DateOfBirthInput() {
   const validateDateOfBirth = (value) => {
     const enteredDate = new Date(value);
@@ -12,6 +14,10 @@ function DateOfBirthInput() {
       return "Date of birth must be between 2001 and 2005";
     }
   };
+
+  // let values = {
+  //   dob: "",
+  // };
 
   return (
     <div className="border p-4 my-2 rounded-lg flex flex-col ">
@@ -34,6 +40,7 @@ function DateOfBirthInput() {
                   validate={validateDateOfBirth}
                   className="border border-gray-400 px-3 py-2 rounded-md w-full text-gray-700 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
                 />
+
                 {formik.errors.dateOfBirth && formik.touched.dateOfBirth && (
                   <div className="text-red-500">
                     {formik.errors.dateOfBirth}
