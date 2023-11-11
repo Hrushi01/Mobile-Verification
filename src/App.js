@@ -1,9 +1,9 @@
-import FileInput from "./components/fileinput/index";
+// import FileInput from "./components/fileinput/index";
 import Otp from "./components/otp";
-import DatePickerForm from "./components/DatePickers/react-datepicker";
-import ReactDatetime from "./components/DatePickers/React-Datetime";
-import AntdDate from "./components/DatePickers/Antd date";
-import BootstrapDate from "./components/DatePickers/Bootstrap-Date/Bootstrapdate";
+// import DatePickerForm from "./components/DatePickers/react-datepicker";
+// import ReactDatetime from "./components/DatePickers/React-Datetime";
+// import AntdDate from "./components/DatePickers/Antd date";
+// import BootstrapDate from "./components/DatePickers/Bootstrap-Date/Bootstrapdate";
 
 function App() {
   return (
@@ -12,12 +12,11 @@ function App() {
         <h1 className="text-3xl font-bold mb-8 text-center">
           Welcome to my app
         </h1>
-        <FileInput />
         <Otp />
-        <BootstrapDate />
-        <ReactDatetime />
-        <AntdDate />
-        <DatePickerForm />
+        {/* <BootstrapDate /> */}
+        {/* <ReactDatetime /> */}
+        {/* <AntdDate /> */}
+        {/* <DatePickerForm /> */}
       </div>
     </div>
   );
